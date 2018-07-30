@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 3000; //if Heroku's port doesn't exist, then use 3000
 var app = express();
 
 //__dirname is needed because we need the full path
@@ -78,8 +79,8 @@ app.get('/bad', (req, res) => {
 
 // now we need to listen
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000');
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}`);
 }); // 3000 is a common port for developing locally
 
 // try http://localhost:3000/
